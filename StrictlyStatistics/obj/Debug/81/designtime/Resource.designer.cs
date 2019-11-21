@@ -2567,9 +2567,6 @@ namespace StrictlyStatistics
 			// aapt resource value: 0x7F0C0053
 			public const int radio = 2131492947;
 			
-			// aapt resource value: 0x7F010005
-			public const int RankingsButton = 2130771973;
-			
 			// aapt resource value: 0x7F0C0054
 			public const int right = 2131492948;
 			
@@ -2702,6 +2699,9 @@ namespace StrictlyStatistics
 			// aapt resource value: 0x7F0C007C
 			public const int textSpacerNoTitle = 2131492988;
 			
+			// aapt resource value: 0x7F010009
+			public const int textView1 = 2130771977;
+			
 			// aapt resource value: 0x7F0C007D
 			public const int text_input_password_toggle = 2131492989;
 			
@@ -2755,6 +2755,9 @@ namespace StrictlyStatistics
 			
 			// aapt resource value: 0x7F010007
 			public const int VoteButton = 2130771975;
+			
+			// aapt resource value: 0x7F010005
+			public const int WeeklyRankingsButton = 2130771973;
 			
 			// aapt resource value: 0x7F0C0090
 			public const int wrap_content = 2131493008;
@@ -2986,6 +2989,9 @@ namespace StrictlyStatistics
 			// aapt resource value: 0x7F0F0006
 			public const int notification_template_part_time = 2131689478;
 			
+			// aapt resource value: 0x7F020004
+			public const int ScoreEntry = 2130837508;
+			
 			// aapt resource value: 0x7F0F0038
 			public const int select_dialog_item_material = 2131689528;
 			
@@ -3000,6 +3006,9 @@ namespace StrictlyStatistics
 			
 			// aapt resource value: 0x7F0F003C
 			public const int tooltip = 2131689532;
+			
+			// aapt resource value: 0x7F020005
+			public const int WeeklyRankings = 2130837509;
 			
 			static Layout()
 			{

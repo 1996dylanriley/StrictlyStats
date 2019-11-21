@@ -4,7 +4,6 @@ C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStati
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\bin\Debug\StrictlyStatistics.StrictlyStatistics-Signed.apk
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\StrictlyStatistics.nuget.stamp
-C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\StrictlyStatistics.csprojAssemblyReference.cache
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\libraryimports.cache.stamp
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\res.flag
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\StrictlyStatistics.csproj.CoreCompileInputs.cache
@@ -36,6 +35,7 @@ C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStati
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\R.cs.flag
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\R.txt
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\uploadflags.txt
+C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\res\layout\instructions.xml
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\bin\Debug\Mono.Android.pdb
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\bin\Debug\mscorlib.pdb
 C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\bin\Debug\System.Core.pdb

@@ -26,7 +26,7 @@
 		android:text="Rankings for the week"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/RankingsButton" />
+		android:id="@+id/WeeklyRankingsButton" />
 	<Button
 		android:text="Couples score breakdown"
 		android:layout_width="match_parent"
