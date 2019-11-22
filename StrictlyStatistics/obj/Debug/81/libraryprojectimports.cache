@@ -18,6 +18,11 @@
     <Jar>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\9\jl\bin\classes.jar</Jar>
   </Jars>
   <ResolvedResourceDirectories>
+    <ResolvedResourceDirectory>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\17\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\18\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\19\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\20\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\21\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\6\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\9\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\11\jl\res</ResolvedResourceDirectory>
@@ -25,9 +30,20 @@
     <ResolvedResourceDirectory>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\13\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\14\jl\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
-  <ResolvedAssetDirectories />
+  <ResolvedAssetDirectories>
+    <ResolvedAssetDirectory>obj\Debug\81\lp\17\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\81\lp\18\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\81\lp\19\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\81\lp\20\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\81\lp\21\jl\assets</ResolvedAssetDirectory>
+  </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
+    <ResolvedResourceDirectoryStamp>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\17.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\18.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\19.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\20.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\21.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\6.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\9.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\driley\Documents\dylan\QA\L5\MobileDev\StrictlyStatistics\StrictlyStatistics\obj\Debug\81\lp\11.stamp</ResolvedResourceDirectoryStamp>
