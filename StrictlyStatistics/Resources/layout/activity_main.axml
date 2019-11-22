@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<TextView
+		android:text="Strictly Stats"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/MainText" />
+	<Button
+		android:text="Instructions"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/InstructionsButton" />
+	<Button
+		android:text="Score Entry"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/ScoreEntryButton" />
+	<Button
+		android:text="Rankings for the week"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/WeeklyRankingsButton" />
+	<Button
+		android:text="Couples score breakdown"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/CouplesScoreBreakdownButton" />
+	<Button
+		android:text="Vote off"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/VoteButton" />
+	<Button
+		android:text="Admin"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/AdminButton" />
+</LinearLayout>
