@@ -8,7 +8,7 @@ namespace StrictlyStatistics
 {
     public interface IRepository
     {
-
+        List<Dance> GetAllDances();
     }
 
     public class SQLiteRepository : IRepository

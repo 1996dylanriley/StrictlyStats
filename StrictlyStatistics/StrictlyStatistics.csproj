@@ -60,6 +60,7 @@
     <Compile Include="Activities\Instructions.cs" />
     <Compile Include="Activities\ScoreEntry.cs" />
     <Compile Include="Activities\WeeklyRankings.cs" />
+    <Compile Include="App.cs" />
     <Compile Include="Data\Models\Dance.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -98,6 +99,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>4.9.4</Version>
+    </PackageReference>
     <PackageReference Include="sqlite-net">
       <Version>1.6.292</Version>
     </PackageReference>
