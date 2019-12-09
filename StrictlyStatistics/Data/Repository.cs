@@ -1,5 +1,6 @@
 ﻿
 using SQLite;
+using StrictlyStatistics.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +10,9 @@ namespace StrictlyStatistics
     public interface IRepository
     {
         List<Dance> GetAllDances();
+        List<Scores> GetAllScores();
+        List<Scores> AddScore();
+
     }
 
     public class SQLiteRepository : IRepository
@@ -28,7 +32,15 @@ namespace StrictlyStatistics
 
         public SQLiteRepository()
         {
-            con = new SQLiteConnection(DbLocation);
+            try
+            {
+                con = new SQLiteConnection(DbLocation);
+            }
+             
+            catch(Exception e)
+            {
+                var x = e.Message;
+            }
         }
 
         public List<Dance> GetAllDances()
@@ -36,6 +48,20 @@ namespace StrictlyStatistics
             List<Dance> dances = con.Table<Dance>().ToList();
 
             return dances;
+        }
+
+        public List<Scores> GetAllScores()
+        {
+            List<Scores> scores = con.Table<Scores>().ToList();
+
+            return scores;
+        }
+
+        public List<Scores> AddScore()
+        {
+            List<Scores> scores = con.Table<Scores>().ToList();
+
+            return scores;
         }
     }
 }

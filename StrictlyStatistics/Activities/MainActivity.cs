@@ -18,19 +18,18 @@ namespace StrictlyStatistics
             //https://hofmadresu.com/2018/04/29/todo-xamarin-native-android.html
             
             base.OnCreate(savedInstanceState);
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.activity_main);
             CreateHandlers();
         }
 
         public void CreateHandlers()
         {
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.activity_main);
-
             var instructionsButton = FindViewById<Button>(Resource.Id.InstructionsButton);
             instructionsButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(Instructions)));
 
             var scoreEntryButton = FindViewById<Button>(Resource.Id.ScoreEntryButton);
-            instructionsButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(ScoreEntry)));
+            scoreEntryButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(ScoreEntry)));
 
             var weekRankingsButton = FindViewById<Button>(Resource.Id.WeeklyRankingsButton);
             instructionsButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(WeeklyRankings)));
