@@ -10,8 +10,8 @@ namespace StrictlyStatistics
     public interface IRepository
     {
         List<Dance> GetAllDances();
-        List<Scores> GetAllScores();
-        List<Scores> AddScore();
+        List<Score> GetAllScores();
+        List<Score> AddScore();
 
     }
 
@@ -50,16 +50,16 @@ namespace StrictlyStatistics
             return dances;
         }
 
-        public List<Scores> GetAllScores()
+        public List<Score> GetAllScores()
         {
-            List<Scores> scores = con.Table<Scores>().ToList();
+            List<Score> scores = con.Table<Score>().ToList();
 
             return scores;
         }
 
-        public List<Scores> AddScore()
+        public List<Score> AddScore()
         {
-            List<Scores> scores = con.Table<Scores>().ToList();
+            List<Score> scores = con.Table<Score>().ToList();
 
             return scores;
         }

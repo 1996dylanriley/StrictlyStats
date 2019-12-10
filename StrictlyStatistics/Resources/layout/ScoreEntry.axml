@@ -14,7 +14,7 @@
 		android:id="@+id/textView1" />
 	<TextView
 		android:text="Select week"
-		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/textView2" />
@@ -26,7 +26,7 @@
 		android:id="@+id/weekInput" />
 	<TextView
 		android:text="Select couple"
-		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/textView3" />
@@ -36,6 +36,12 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/danceInput" />
+	<TextView
+		android:text="Enter score"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/textView4" />
 	<NumberPicker
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -45,12 +51,12 @@
 		android:text="Confirm"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/confirm" />
+		android:id="@+id/confirmButton" />
 	<Button
 		android:text="Cancel"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/cancel" />
+		android:id="@+id/cancelButton" />
 
 
 </LinearLayout>
