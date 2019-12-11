@@ -12,6 +12,8 @@ namespace StrictlyStatistics
         List<Dance> GetAllDances();
         List<Score> GetAllScores();
         List<Score> AddScore();
+        List<Couple> GetCouples();
+        void SaveCoupleScore(Score score);
 
     }
 
@@ -62,6 +64,25 @@ namespace StrictlyStatistics
             List<Score> scores = con.Table<Score>().ToList();
 
             return scores;
+        }
+
+        public List<Couple> GetCouples()
+        {
+            List<Couple> couples = con.Table<Couple>().ToList();
+
+            return couples;
+        }
+
+        public void SaveCoupleScore(Score score)
+        {
+            try
+            {
+                con.Insert(score);
+            }
+            catch(Exception e)
+            {
+                var x = e.Message;
+            }
         }
     }
 }

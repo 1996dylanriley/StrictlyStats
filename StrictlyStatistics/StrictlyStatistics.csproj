@@ -61,6 +61,7 @@
     <Compile Include="Activities\ScoreEntry.cs" />
     <Compile Include="Activities\WeeklyRankings.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="Data\Models\Couple.cs" />
     <Compile Include="Data\Models\Dance.cs" />
     <Compile Include="Data\Models\Score.cs" />
     <Compile Include="Data\Repository.cs" />

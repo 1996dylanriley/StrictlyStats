@@ -20,6 +20,7 @@ namespace StrictlyStatistics.Activities
     {
         public IRepository Repo { get; set; }
         Score Score { get; set; } = new Score();
+        List<Score> Scores { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,21 +30,22 @@ namespace StrictlyStatistics.Activities
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.ScoreEntry);
             InitialiseComponents();
+            Scores = Repo.GetAllScores();
         }
 
         public void InitialiseComponents()
         {
             InitialiseWeekInput();
             InitialiseDanceInput();
+            InitialiseCoupleInput();
             InitialiseConfirmButton();
-            CreateHandlers();
         }
         
 
 
         void InitialiseWeekInput()
         {
-            int[] weeks = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+            int[] weeks = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 
             Spinner weekInput = FindViewById<Spinner>(Resource.Id.weekInput);
             var adapter = new ArrayAdapter<int>(this, Android.Resource.Layout.SimpleListItem1, weeks);
@@ -58,7 +60,7 @@ namespace StrictlyStatistics.Activities
                         var selected = spinner.GetItemAtPosition(e.Position);
                         string toast = string.Format("{0}", selected);
                         Toast.MakeText(this, toast, ToastLength.Long).Show();
-                        Score.DanceID = (int)selected;
+                        Score.WeekNumber = (int)selected;
                     }
                     catch (Exception ex)
                     {
@@ -76,19 +78,23 @@ namespace StrictlyStatistics.Activities
         void InitialiseDanceInput()
         {
             Spinner danceInput = FindViewById<Spinner>(Resource.Id.danceInput);
-            var dances = Repo.GetAllDances().Select(x => x.Name).ToArray();
-            danceInput.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, dances);
+            var dances = Repo.GetAllDances().ToList();
+            var danceNames = dances.Select(x => x.Name).ToList();
+            danceNames.Insert(0, "Select dance");
+            danceInput.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, danceNames);
             try
             {
-                danceInput.ItemSelected += (sender, args) =>
+                danceInput.ItemSelected += (sender, e) =>
                 {
                     try
                     {
-                        Score.DanceID = (int)danceInput.SelectedItemId;
+                        Spinner spinner = (Spinner)sender;
+                        var selected = spinner.GetItemAtPosition(e.Position);
+                        Score.DanceID = dances.FirstOrDefault(x => x.Name == selected.ToString()).DanceId;
                     }
-                    catch (Exception e)
+                    catch (Exception ex)
                     {
-                        var x = e.Message;
+                        var x = ex.Message;
                     }
                 };
             }
@@ -98,20 +104,48 @@ namespace StrictlyStatistics.Activities
             }
         }
 
-        void InitialiseScoreInput()
+        void InitialiseCoupleInput()
         {
-            NumberPicker scoreInput = FindViewById<NumberPicker>(Resource.Id.scoreInput);
-            scoreInput.MinValue = 0;
-            scoreInput.MaxValue = 40;
-            
+            Spinner coupleInput = FindViewById<Spinner>(Resource.Id.coupleInput);
+            var couples = Repo.GetCouples().ToList();
+            var couplesNames = couples.Select(x => x.CelebrityFirstName + " " + x.ProfessionalFirstName).ToList();
+            couplesNames.Insert(0, "Select couple");
+            coupleInput.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, couplesNames);
             try
             {
-                scoreInput.ValueChanged += (sender, args) => Score.ScoreValue = scoreInput.Value;
+                coupleInput.ItemSelected += (sender, e) =>
+                {
+                    try
+                    {
+                        Spinner spinner = (Spinner)sender;
+                        var selected = spinner.GetItemAtPosition(e.Position);
+                        Score.CoupleID = couples.FirstOrDefault(x => selected.ToString().Contains(x.CelebrityFirstName) 
+                        && selected.ToString().Contains(x.ProfessionalFirstName)).CoupleID;
+                    }
+                    catch (Exception ex)
+                    {
+                        var x = ex.Message;
+                    }
+                };
             }
             catch (Exception e)
             {
                 var x = e.Message;
             }
+        }
+
+
+        void ScoreInput()
+        {
+            EditText scoreInput = FindViewById<EditText>(Resource.Id.scoreInput);
+            var input = int.Parse(scoreInput.Text);
+            if (input > 40 || input == 0)
+            {
+                scoreInput.SetError("Score cannot be more than 40 or less than 0", null);
+            }
+            
+            Score.ScoreValue = input;
+
 
         }
 
@@ -121,21 +155,17 @@ namespace StrictlyStatistics.Activities
 
             button.Click += (sender, args) =>
             {
-                if (Score.CoupleID == 0 || Score.DanceID == 0 || Score.ScoreValue < 0)
+                ScoreInput();
+                if (Score.WeekNumber == 0 || Score.CoupleID == 0 || Score.DanceID == 0 || (Score.ScoreValue < 0 || Score.ScoreValue > 40))
                     Alert.ShowAlertWithSingleButton(this, "Error", "All fields must be populated", "OK");
-                else { }
-                    //temp
+                else
+                {
+                    Repo.SaveCoupleScore(Score);
+                    Alert.ShowAlertWithSingleButton(this, "Sucess", "Successfully saved dance", "OK");
+                    Scores = Repo.GetAllScores();
+                }
+               
             };
-        }
-
-
-
-        void CreateHandlers()
-        {
-            //var instructionsButton = FindViewById<Button>(Resource.Id.InstructionsButton);
-            //instructionsButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(Instructions));
-
-            //WeekSpinner.ItemSelected += (sender, args) => Toast.MakeText(this, weeks[0], ToastLength.Short).Show(); 
         }
     }
 }

@@ -35,6 +35,18 @@
 		android:minHeight="25px"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:id="@+id/coupleInput" />
+	<TextView
+		android:text="Select dance"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/textView5" />
+	<Spinner
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
 		android:id="@+id/danceInput" />
 	<TextView
 		android:text="Enter score"
@@ -42,7 +54,9 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/textView4" />
-	<NumberPicker
+	<EditText
+		android:text="0"
+		android:inputType="number"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/scoreInput" />
