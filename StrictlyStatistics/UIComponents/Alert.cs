@@ -40,7 +40,7 @@ namespace StrictlyStatistics.UIComponents
             });
             alert.SetButton2(buttonText2, (c, ev) =>
             {
-                but1Callback();
+                but2Callback();
                 alert.Hide();
             });
             alert.Show();
