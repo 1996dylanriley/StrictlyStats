@@ -32,7 +32,7 @@ namespace StrictlyStatistics
             scoreEntryButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(ScoreEntry)));
 
             var weekRankingsButton = FindViewById<Button>(Resource.Id.WeeklyRankingsButton);
-            instructionsButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(WeeklyRankings)));
+            weekRankingsButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(WeeklyRankings)));
 
             var couplesScoreBreakdownButton = FindViewById<Button>(Resource.Id.InstructionsButton);
             instructionsButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(Instructions)));

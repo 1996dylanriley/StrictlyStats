@@ -2618,8 +2618,8 @@ namespace StrictlyStatistics
 			// aapt resource value: 0x7f090061
 			public const int list_item = 2131296353;
 			
-			// aapt resource value: 0x7f0900c0
-			public const int masked = 2131296448;
+			// aapt resource value: 0x7f0900c2
+			public const int masked = 2131296450;
 			
 			// aapt resource value: 0x7f0900a8
 			public const int media_actions = 2131296424;
@@ -2698,6 +2698,9 @@ namespace StrictlyStatistics
 			
 			// aapt resource value: 0x7f0900bb
 			public const int scoreInput = 2131296443;
+			
+			// aapt resource value: 0x7f0900c0
+			public const int scoresList = 2131296448;
 			
 			// aapt resource value: 0x7f090029
 			public const int screen = 2131296297;
@@ -2891,11 +2894,14 @@ namespace StrictlyStatistics
 			// aapt resource value: 0x7f090016
 			public const int view_offset_helper = 2131296278;
 			
-			// aapt resource value: 0x7f0900bf
-			public const int visible = 2131296447;
+			// aapt resource value: 0x7f0900c1
+			public const int visible = 2131296449;
 			
 			// aapt resource value: 0x7f0900b7
 			public const int weekInput = 2131296439;
+			
+			// aapt resource value: 0x7f0900bf
+			public const int weekRankingInput = 2131296447;
 			
 			// aapt resource value: 0x7f09003c
 			public const int withText = 2131296316;
