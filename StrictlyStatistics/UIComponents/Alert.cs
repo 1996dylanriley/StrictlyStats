@@ -26,5 +26,24 @@ namespace StrictlyStatistics.UIComponents
             });
             alert.Show();
         }
+
+        public static void ShowAlertWithTwoButtons(Activity self, string title, string message, string buttonText1, string buttonText2, Action but1Callback, Action but2Callback)
+        {
+            Android.App.AlertDialog.Builder dialog = new AlertDialog.Builder(self);
+            AlertDialog alert = dialog.Create();
+            alert.SetTitle(title);
+            alert.SetMessage(message);
+            alert.SetButton(buttonText1, (c, ev) =>
+            {
+                but1Callback();
+                alert.Hide();
+            });
+            alert.SetButton2(buttonText2, (c, ev) =>
+            {
+                but1Callback();
+                alert.Hide();
+            });
+            alert.Show();
+        }
     }
 }
