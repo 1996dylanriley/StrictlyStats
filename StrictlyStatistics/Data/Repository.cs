@@ -11,9 +11,12 @@ namespace StrictlyStatistics
     public interface IRepository
     {
         List<Dance> GetAllDances();
+        Dance GetDance(int id);
         List<Score> GetAllScores();
+        Score GetScore(int id);
         List<Score> AddScore();
         List<Couple> GetCouples();
+        Couple GetCouple(int id);
         void SaveCoupleScore(Score score);
         void OverwrtireScore(Score score);
 
@@ -34,58 +37,21 @@ namespace StrictlyStatistics
             }
         }
 
-        public SQLiteRepository()
-        {
-            try
-            {
-                con = new SQLiteConnection(DbLocation);
-            }
-             
-            catch(Exception e)
-            {
-                var x = e.Message;
-            }
-        }
+        public SQLiteRepository() => con = new SQLiteConnection(DbLocation);
 
-        public List<Dance> GetAllDances()
-        {
-            List<Dance> dances = con.Table<Dance>().ToList();
+        public List<Dance> GetAllDances() => con.Table<Dance>().ToList();
+        public Dance GetDance(int id) => con.Table<Dance>().FirstOrDefault(x => x.DanceId == id);
 
-            return dances;
-        }
+        public List<Score> GetAllScores() => con.Table<Score>().ToList();
+        public Score GetScore(int id) => con.Table<Score>().FirstOrDefault(x => x.ScoreID == id);
 
-        public List<Score> GetAllScores()
-        {
-            List<Score> scores = con.Table<Score>().ToList();
+        public List<Score> AddScore() => con.Table<Score>().ToList();
 
-            return scores;
-        }
+        public List<Couple> GetCouples() => con.Table<Couple>().ToList();
 
-        public List<Score> AddScore()
-        {
-            List<Score> scores = con.Table<Score>().ToList();
+        public Couple GetCouple(int id) => con.Table<Couple>().FirstOrDefault(x => x.CoupleID == id);
 
-            return scores;
-        }
-
-        public List<Couple> GetCouples()
-        {
-            List<Couple> couples = con.Table<Couple>().ToList();
-
-            return couples;
-        }
-
-        public void SaveCoupleScore(Score score)
-        {
-            try
-            {
-                con.Insert(score);
-            }
-            catch(Exception e)
-            {
-                var x = e.Message;
-            }
-        }
+        public void SaveCoupleScore(Score score) => con.Insert(score);
 
         public void OverwrtireScore(Score score)
         {
