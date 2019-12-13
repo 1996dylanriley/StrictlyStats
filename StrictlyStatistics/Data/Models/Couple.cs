@@ -16,12 +16,14 @@ namespace StrictlyStatistics.Data.Models
     [Table("Couples")]
     public class Couple
     {
+            [PrimaryKey] // SQLite attribute
+            [AutoIncrement]
             public int CoupleID { get; set; }
             public string CelebrityFirstName { get; set; }
             public string CelebrityLastName { get; set; }
             public string ProfessionalFirstName { get; set; }
             public string ProfessionalLastName { get; set; }
             public int CelebrityStarRating { get; set; }
-            public int VotedOffWeekNumber { get; set; }
+            public int? VotedOffWeekNumber { get; set; }
     }
 }

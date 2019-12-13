@@ -64,6 +64,7 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\Instructions.cs" />
     <Compile Include="Activities\ScoreEntry.cs" />
+    <Compile Include="Activities\VoteOff.cs" />
     <Compile Include="Activities\WeeklyRankings.cs" />
     <Compile Include="Adapters\SimpleListItem2ListAdapter.cs" />
     <Compile Include="App.cs" />
@@ -136,6 +137,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\CoupleScoreBreakdown.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\VoteOff.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

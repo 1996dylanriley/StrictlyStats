@@ -2627,8 +2627,8 @@ namespace StrictlyStatistics
 			// aapt resource value: 0x7f090061
 			public const int list_item = 2131296353;
 			
-			// aapt resource value: 0x7f0900c5
-			public const int masked = 2131296453;
+			// aapt resource value: 0x7f0900c9
+			public const int masked = 2131296457;
 			
 			// aapt resource value: 0x7f0900ab
 			public const int media_actions = 2131296427;
@@ -2708,8 +2708,8 @@ namespace StrictlyStatistics
 			// aapt resource value: 0x7f0900be
 			public const int scoreInput = 2131296446;
 			
-			// aapt resource value: 0x7f0900c3
-			public const int scoresList = 2131296451;
+			// aapt resource value: 0x7f0900c7
+			public const int scoresList = 2131296455;
 			
 			// aapt resource value: 0x7f090029
 			public const int screen = 2131296297;
@@ -2903,14 +2903,26 @@ namespace StrictlyStatistics
 			// aapt resource value: 0x7f090016
 			public const int view_offset_helper = 2131296278;
 			
+			// aapt resource value: 0x7f0900c8
+			public const int visible = 2131296456;
+			
+			// aapt resource value: 0x7f0900c3
+			public const int voteCoupleSpinner = 2131296451;
+			
+			// aapt resource value: 0x7f0900c5
+			public const int voteOffButton = 2131296453;
+			
+			// aapt resource value: 0x7f0900c2
+			public const int voteOffTitle = 2131296450;
+			
 			// aapt resource value: 0x7f0900c4
-			public const int visible = 2131296452;
+			public const int voteOffWeekSpinner = 2131296452;
 			
 			// aapt resource value: 0x7f0900ba
 			public const int weekInput = 2131296442;
 			
-			// aapt resource value: 0x7f0900c2
-			public const int weekRankingInput = 2131296450;
+			// aapt resource value: 0x7f0900c6
+			public const int weekRankingInput = 2131296454;
 			
 			// aapt resource value: 0x7f09003c
 			public const int withText = 2131296316;
@@ -3167,7 +3179,10 @@ namespace StrictlyStatistics
 			public const int tooltip = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int WeeklyRankings = 2130968640;
+			public const int VoteOff = 2130968640;
+			
+			// aapt resource value: 0x7f040041
+			public const int WeeklyRankings = 2130968641;
 			
 			static Layout()
 			{

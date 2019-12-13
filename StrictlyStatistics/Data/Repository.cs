@@ -19,6 +19,7 @@ namespace StrictlyStatistics
         Couple GetCouple(int id);
         void SaveCoupleScore(Score score);
         void OverwrtireScore(Score score);
+        void UpdateCouple(Couple couple);
 
     }
 
@@ -61,5 +62,7 @@ namespace StrictlyStatistics
 
             SaveCoupleScore(score);
         }
+
+        public void UpdateCouple(Couple couple) => con.Update(couple);
     }
 }
