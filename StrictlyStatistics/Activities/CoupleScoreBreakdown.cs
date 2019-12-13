@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -20,7 +19,7 @@ namespace StrictlyStatistics.Activities
         public IRepository Repo { get; set; }
         public ListView CouplesList { get; set; }
         public Spinner CoupleInput { get; set; }
-        public int SelectedWeek { get; set; }
+        public int SelectedCoupleId { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,45 +32,45 @@ namespace StrictlyStatistics.Activities
         }
 
         void InitialiseComponents()
-        {
-            InitialiseListView();
-            InitialiseWeekInput();
+        {            
+            InitialiseCoupleInput();
         }
 
-        void InitialiseListView()
+        void PopulateListView()
         {
             CouplesList = FindViewById<ListView>(Resource.Id.dancesListView);
 
-            var scores = Repo.GetAllScores().Where(x => x.WeekNumber == SelectedWeek);
-            var couples = Repo.GetCouples().Where(x => scores.Select(y => y.CoupleID).Contains(x.CoupleID));
+            var scores = Repo.GetAllScores().Where(x => x.CoupleID == SelectedCoupleId);
+            var dances = Repo.GetAllDances();
 
-            var dances = new List<Tuple<string, int>>();
-            foreach (var c in couples)
+            var couplesDances = new List<Tuple<string, int>>();
+            foreach (var s in scores)
             {
-                var coupleScore = scores.FirstOrDefault(x => x.CoupleID == c.CoupleID).ScoreValue;
-                dances.Add(new Tuple<string, int>(c.CelebrityFirstName + " and " + c.ProfessionalFirstName, coupleScore));
+                var d = dances.FirstOrDefault(x => x.DanceId == s.DanceID);
+                couplesDances.Add(new Tuple<string, int>(d.Name, s.ScoreValue));
             }
 
-            var adapter = new SimpleListItem2ListAdapter(this, dances);
+            var adapter = new SimpleListItem2ListAdapter(this, couplesDances);
             CouplesList.Adapter = adapter;
         }
 
-        void InitialiseWeekInput()
+        void InitialiseCoupleInput()
         {
-            CoupleInput = FindViewById<Spinner>(Resource.Id.couplesScorebreakdownInput);
-            var weeks = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-            var adapter = new ArrayAdapter<int>(this, Android.Resource.Layout.SimpleListItem1, weeks);
-            CoupleInput.Adapter = adapter;
+                CoupleInput = FindViewById<Spinner>(Resource.Id.couplesScorebreakdownInput);
+                var couples = Repo.GetCouples().ToList();
+                var couplesNames = couples.Select(x => x.CelebrityFirstName + " " + x.ProfessionalFirstName).ToList();
+                couplesNames.Insert(0, "Select couple");
+                CoupleInput.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, couplesNames);
 
-            CoupleInput.ItemSelected += (sender, e) =>
-            {
-                Spinner spinner = (Spinner)sender;
-                var selected = spinner.GetItemAtPosition(e.Position);
-                string toast = string.Format("{0}", selected);
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
-                SelectedWeek = (int)selected;
-                InitialiseListView();
-            };
+                CoupleInput.ItemSelected += (sender, e) =>
+                {
+                    Spinner spinner = (Spinner)sender;
+                    var selected = spinner.GetItemAtPosition(e.Position);
+                    SelectedCoupleId = couples.FirstOrDefault(x => selected.ToString().Contains(x.CelebrityFirstName)
+                    && selected.ToString().Contains(x.ProfessionalFirstName))?.CoupleID ?? 0;
+
+                    PopulateListView();
+                };                            
         }
     }
 }
