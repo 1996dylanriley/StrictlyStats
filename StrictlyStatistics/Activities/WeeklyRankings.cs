@@ -46,15 +46,18 @@ namespace StrictlyStatistics.Activities
             var couples = Repo.GetCouples().Where(x => scores.Select(y => y.CoupleID).Contains(x.CoupleID));
 
             var rankings = new List<Tuple<string, int>>();
-            int rank = 0;
             foreach(var c in couples)
             {
-                rank++;
                 var coupleScore = scores.FirstOrDefault(x => x.CoupleID == c.CoupleID).ScoreValue;
-                rankings.Add(new Tuple<string, int>("#" + rank.ToString() + " " + c.CelebrityFirstName + " and " + c.ProfessionalFirstName, coupleScore));
+                rankings.Add(new Tuple<string, int>(c.CelebrityFirstName + " and " + c.ProfessionalFirstName, coupleScore));
             }
 
             rankings.Sort((x,y) => y.Item2.CompareTo(x.Item2));
+
+            for (int i = 1; i < rankings.Count; i++)
+            {
+                rankings[i] =  new Tuple<string, int>("#" + i.ToString() + " " + rankings[i].Item1, rankings[i].Item2);
+            }
 
             var adapter = new SimpleListItem2ListAdapter(this,  rankings);
             ScoresList.Adapter = adapter;
