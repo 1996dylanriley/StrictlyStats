@@ -44,6 +44,8 @@ namespace StrictlyStatistics.Activities
             var dances = Repo.GetAllDances();
 
             var couplesDances = new List<Tuple<string, int>>();
+            couplesDances.Add(new Tuple<string, int>("Average dance score", CouplesAverageScore()));
+
             foreach (var s in scores)
             {
                 var d = dances.FirstOrDefault(x => x.DanceId == s.DanceID);
@@ -69,8 +71,15 @@ namespace StrictlyStatistics.Activities
                     SelectedCoupleId = couples.FirstOrDefault(x => selected.ToString().Contains(x.CelebrityFirstName)
                     && selected.ToString().Contains(x.ProfessionalFirstName))?.CoupleID ?? 0;
 
-                    PopulateListView();
+                    if(SelectedCoupleId != 0)
+                        PopulateListView();
                 };                            
+        }
+
+        int CouplesAverageScore()
+        {
+            var couplesScores = Repo.GetAllScores().Where(x => x.CoupleID == SelectedCoupleId);
+            return (int)couplesScores.Average(x => x.ScoreValue);
         }
     }
 }
