@@ -54,9 +54,9 @@ namespace StrictlyStatistics.Activities
 
             rankings.Sort((x,y) => y.Item2.CompareTo(x.Item2));
 
-            for (int i = 1; i < rankings.Count; i++)
+            for (int i = 0; i < rankings.Count; i++)
             {
-                rankings[i] =  new Tuple<string, int>("#" + i.ToString() + " " + rankings[i].Item1, rankings[i].Item2);
+                rankings[i] =  new Tuple<string, int>("#" + (i+1).ToString() + " " + rankings[i].Item1, rankings[i].Item2);
             }
 
             var adapter = new SimpleListItem2ListAdapter(this,  rankings);
