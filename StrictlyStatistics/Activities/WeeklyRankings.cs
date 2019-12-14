@@ -11,14 +11,15 @@ using Android.Views;
 using Android.Widget;
 using Autofac;
 using StrictlyStatistics.Adapters;
+using StrictlyStatistics.UIComponents;
 
 namespace StrictlyStatistics.Activities
 {
     [Activity(Label = "WeeklyRankings")]
     public class WeeklyRankings : Activity
-    {
+    { 
         public IRepository Repo { get; set; }
-        public ListView ScoresList { get; set; }
+        public ListView listView { get; set; }
         public Spinner WeekInput { get; set; }
         public int SelectedWeek { get; set; }
 
@@ -40,27 +41,17 @@ namespace StrictlyStatistics.Activities
 
         void InitialiseListView()
         {
-            ScoresList = FindViewById<ListView>(Resource.Id.scoresList);
-
             var scores = Repo.GetAllScores().Where(x => x.WeekNumber == SelectedWeek);
             var couples = Repo.GetCouples().Where(x => scores.Select(y => y.CoupleID).Contains(x.CoupleID));
 
-            var rankings = new List<Tuple<string, int>>();
+            var weekScores = new List<Tuple<string, int>>();
             foreach(var c in couples)
             {
                 var coupleScore = scores.FirstOrDefault(x => x.CoupleID == c.CoupleID).ScoreValue;
-                rankings.Add(new Tuple<string, int>(c.CelebrityFirstName + " and " + c.ProfessionalFirstName, coupleScore));
+                weekScores.Add(new Tuple<string, int>(c.CoupleName, coupleScore));
             }
 
-            rankings.Sort((x,y) => y.Item2.CompareTo(x.Item2));
-
-            for (int i = 0; i < rankings.Count; i++)
-            {
-                rankings[i] =  new Tuple<string, int>("#" + (i+1).ToString() + " " + rankings[i].Item1, rankings[i].Item2);
-            }
-
-            var adapter = new SimpleListItem2ListAdapter(this,  rankings);
-            ScoresList.Adapter = adapter;
+             RankingListView.Create(this, weekScores, Resource.Id.scoresList);
         }
        
         void InitialiseWeekInput()

@@ -95,7 +95,7 @@ namespace StrictlyStatistics.Activities
         {
             CoupleInput = FindViewById<Spinner>(Resource.Id.coupleInput);
             var couples = Repo.GetCouples().ToList();
-            var couplesNames = couples.Select(x => x.CelebrityFirstName + " " + x.ProfessionalFirstName).ToList();
+            var couplesNames = couples.Select(x => x.CoupleName).ToList();
             couplesNames.Insert(0, "Select couple");
             CoupleInput.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, couplesNames);
             if(addEventhandlers)
@@ -104,8 +104,7 @@ namespace StrictlyStatistics.Activities
                 {
                     Spinner spinner = (Spinner)sender;
                     var selected = spinner.GetItemAtPosition(e.Position);
-                    Score.CoupleID = couples.FirstOrDefault(x => selected.ToString().Contains(x.CelebrityFirstName) 
-                    && selected.ToString().Contains(x.ProfessionalFirstName))?.CoupleID ?? 0;
+                    Score.CoupleID = couples.FirstOrDefault(x => selected.ToString().Contains(x.CoupleName))?.CoupleID ?? 0;
                     UpdateWeekInput();
                     UpdateDancesInput();
                     

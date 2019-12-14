@@ -25,5 +25,6 @@ namespace StrictlyStatistics.Data.Models
             public string ProfessionalLastName { get; set; }
             public int CelebrityStarRating { get; set; }
             public int? VotedOffWeekNumber { get; set; }
+            public string CoupleName => CelebrityFirstName + " and " + ProfessionalFirstName;
     }
 }

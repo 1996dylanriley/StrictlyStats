@@ -60,9 +60,12 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\Admin.cs" />
     <Compile Include="Activities\CoupleScoreBreakdown.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\Instructions.cs" />
+    <Compile Include="Activities\OverallRanking.cs" />
+    <Compile Include="Activities\RankingByDance.cs" />
     <Compile Include="Activities\ScoreEntry.cs" />
     <Compile Include="Activities\VoteOff.cs" />
     <Compile Include="Activities\WeeklyRankings.cs" />
@@ -75,6 +78,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIComponents\Alert.cs" />
+    <Compile Include="UIComponents\RankingListView.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Raw\StrictlyStats.db" />
@@ -142,6 +146,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\VoteOff.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\OverallRanking.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RankingByDance.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Admin.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
