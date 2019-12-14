@@ -37,6 +37,16 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/VoteButton" />
+    <Button
+        android:text="Ranking by dance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rankingByDanceButton" />
+    <Button
+        android:text="Overall ranking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/overallRankingButton" />
 	<Button
 		android:text="Admin"
 		android:layout_width="match_parent"
