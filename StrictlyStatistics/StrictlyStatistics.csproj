@@ -67,6 +67,7 @@
     <Compile Include="Activities\OverallRanking.cs" />
     <Compile Include="Activities\RankingByDance.cs" />
     <Compile Include="Activities\ScoreEntry.cs" />
+    <Compile Include="Activities\StrictlyStatsActivity.cs" />
     <Compile Include="Activities\VoteOff.cs" />
     <Compile Include="Activities\WeeklyRankings.cs" />
     <Compile Include="Adapters\SimpleListItem2ListAdapter.cs" />
@@ -78,7 +79,9 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIComponents\Alert.cs" />
+    <Compile Include="UIComponents\CoupleSpinner.cs" />
     <Compile Include="UIComponents\RankingListView.cs" />
+    <Compile Include="UIComponents\WeekSpinner.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Raw\StrictlyStats.db" />
