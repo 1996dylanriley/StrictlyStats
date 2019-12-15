@@ -38,7 +38,7 @@ namespace StrictlyStatistics.Activities
                 weekScores.Add(new Tuple<string, int>(c.CoupleName, coupleScore));
             }
 
-            RankingListView.Initialise(this, weekScores, Resource.Id.scoresList);
+            RankingListView.Initialise(this, weekScores, Resource.Id.scoresList, "There are no results for this week.");
         }
     }
 }

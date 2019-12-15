@@ -20,7 +20,7 @@ namespace StrictlyStatistics.Activities
         internal Couple Couple { get; set; }
         internal Dance Dance { get; set; }
         internal int SelectedWeek { get; set; }
-        internal List<int> weeks = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+        internal List<int> weeks = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

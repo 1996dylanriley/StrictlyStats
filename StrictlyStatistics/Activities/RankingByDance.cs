@@ -35,7 +35,7 @@ namespace StrictlyStatistics.Activities
                 couplesDanceScores.Add(new Tuple<string, int>(c.CoupleName, couplesDanceScore));
             }
 
-            RankingListView.Initialise(this, couplesDanceScores, Resource.Id.rankingByDanceListView);
+            RankingListView.Initialise(this, couplesDanceScores, Resource.Id.rankingByDanceListView, "This dance has not been performed by any couple yet");
         }
 
     }
