@@ -14,16 +14,13 @@ namespace StrictlyStatistics
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            //Check this tutorial out
-            //https://hofmadresu.com/2018/04/29/todo-xamarin-native-android.html
-            
             base.OnCreate(savedInstanceState);
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
-            CreateHandlers();
+
+            InitialiseComponents();
         }
 
-        public void CreateHandlers()
+        public void InitialiseComponents()
         {
             var instructionsButton = FindViewById<Button>(Resource.Id.InstructionsButton);
             instructionsButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(Instructions)));

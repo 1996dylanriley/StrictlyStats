@@ -14,9 +14,8 @@ using StrictlyStatistics.Adapters;
 namespace StrictlyStatistics.Activities
 {
     [Activity(Label = "CoupleScoreBreakdown")]
-    public class CoupleScoreBreakdown : Activity
-    {       
-        public IRepository Repo { get; set; }
+    public class CoupleScoreBreakdown : StrictlyStatsActivity
+    {
         public ListView CouplesList { get; set; }
         public Spinner CoupleInput { get; set; }
         public int SelectedCoupleId { get; set; }
@@ -24,15 +23,8 @@ namespace StrictlyStatistics.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Repo = MainApp.Container.Resolve<IRepository>();
-
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.CoupleScoreBreakdown);
-            InitialiseComponents();
-        }
 
-        void InitialiseComponents()
-        {            
             InitialiseCoupleInput();
         }
 

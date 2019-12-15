@@ -16,25 +16,13 @@ using StrictlyStatistics.UIComponents;
 namespace StrictlyStatistics.Activities
 {
     [Activity(Label = "WeeklyRankings")]
-    public class WeeklyRankings : Activity
-    { 
-        public IRepository Repo { get; set; }
-        public ListView listView { get; set; }
-        public Spinner WeekInput { get; set; }
-        public int SelectedWeek { get; set; }
-
+    public class WeeklyRankings : StrictlyStatsActivity
+    {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Repo = MainApp.Container.Resolve<IRepository>();
-
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.WeeklyRankings);
-            InitialiseComponents();
-        }
 
-        void InitialiseComponents()
-        {
             InitialiseListView();
             InitialiseWeekInput();
         }
@@ -51,17 +39,17 @@ namespace StrictlyStatistics.Activities
                 weekScores.Add(new Tuple<string, int>(c.CoupleName, coupleScore));
             }
 
-             RankingListView.Initialise(this, weekScores, Resource.Id.scoresList);
+            RankingListView.Initialise(this, weekScores, Resource.Id.scoresList);
         }
        
         void InitialiseWeekInput()
         {
-            WeekInput = FindViewById<Spinner>(Resource.Id.weekRankingInput);
+            var weekInput = FindViewById<Spinner>(Resource.Id.weekRankingInput);
             var weeks = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
             var adapter = new ArrayAdapter<int>(this, Android.Resource.Layout.SimpleListItem1, weeks);
-            WeekInput.Adapter = adapter;
+            weekInput.Adapter = adapter;
 
-            WeekInput.ItemSelected += (sender, e) =>
+            weekInput.ItemSelected += (sender, e) =>
             {
                 Spinner spinner = (Spinner)sender;
                 var selected = spinner.GetItemAtPosition(e.Position);

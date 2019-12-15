@@ -22,18 +22,13 @@ namespace StrictlyStatistics.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Repo = MainApp.Container.Resolve<IRepository>();
             SetContentView(Resource.Layout.VoteOff);
-            InitialiseComponents();
-        }
 
-        void InitialiseComponents()
-        {
             CoupleSpinner.Initialise(this, Repo.GetAllCouples().ToList(), Resource.Id.voteCoupleSpinner);
             WeekSpinner.Initialise(this, weeks, Resource.Id.voteOffWeekSpinner);
             InitialiseVoteButton();
         }
-
+        
         void InitialiseVoteButton()
         {
             Button button = FindViewById<Button>(Resource.Id.voteOffButton);
