@@ -23,11 +23,10 @@ namespace StrictlyStatistics.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.WeeklyRankings);
 
-            InitialiseListView();
-            InitialiseWeekInput();
+            WeekSpinner.Initialise(this, weeks, Resource.Id.weekRankingInput, true, UpdateRankingsListView);
         }
 
-        void InitialiseListView()
+        void UpdateRankingsListView()
         {
             var scores = Repo.GetAllScores().Where(x => x.WeekNumber == SelectedWeek);
             var couples = Repo.GetAllCouples().Where(x => scores.Select(y => y.CoupleID).Contains(x.CoupleID));
@@ -40,24 +39,6 @@ namespace StrictlyStatistics.Activities
             }
 
             RankingListView.Initialise(this, weekScores, Resource.Id.scoresList);
-        }
-       
-        void InitialiseWeekInput()
-        {
-            var weekInput = FindViewById<Spinner>(Resource.Id.weekRankingInput);
-            var weeks = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-            var adapter = new ArrayAdapter<int>(this, Android.Resource.Layout.SimpleListItem1, weeks);
-            weekInput.Adapter = adapter;
-
-            weekInput.ItemSelected += (sender, e) =>
-            {
-                Spinner spinner = (Spinner)sender;
-                var selected = spinner.GetItemAtPosition(e.Position);
-                string toast = string.Format("{0}", selected);
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
-                SelectedWeek = (int)selected;
-                InitialiseListView();
-            };
         }
     }
 }

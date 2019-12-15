@@ -10,7 +10,7 @@ Couple score breakdown: user selects a couple before dances and scores are shown
 
 Vote off: user selects a couple who the public have “voted off” the competition for the current week.
 
-Ranking by dance: user is shown rankings by dance for selected couple.
+Ranking by dance: user is shown rankings of couples by dance.
 If no couple has yet attempted the selected dance an appropriate message should be displayed.
 
 Overall ranking: the user is shown the overall rankings for the competition so far. This page also shows the overall average score for all the couples across the competition so far.

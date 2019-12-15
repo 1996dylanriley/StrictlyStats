@@ -15,9 +15,9 @@ namespace StrictlyStatistics.UIComponents
 {
     public static class DanceSpinner
     {
-        public static void Initialise(StrictlyStatsActivity context, List<Dance> dances, int spinnerId, bool addEventhandlers = true)
+        public static void Initialise(StrictlyStatsActivity context, List<Dance> dances, int spinnerId, bool addEventhandlers = true, Action itemSelectedCallback = null)
         {
-            var danceInput = context.FindViewById<Spinner>(Resource.Id.danceInput);
+            var danceInput = context.FindViewById<Spinner>(spinnerId);
             var danceNames = dances.Select(x => x.Name).ToList();
             danceNames.Insert(0, "Select dance");
             danceInput.Adapter = new ArrayAdapter<string>(context, Android.Resource.Layout.SimpleListItem1, danceNames);
@@ -29,6 +29,7 @@ namespace StrictlyStatistics.UIComponents
                     Spinner spinner = (Spinner)sender;
                     var selected = spinner.GetItemAtPosition(e.Position);
                     context.Dance = dances.FirstOrDefault(x => x.Name == selected.ToString());
+                    itemSelectedCallback?.Invoke();
                 };
             }
         }

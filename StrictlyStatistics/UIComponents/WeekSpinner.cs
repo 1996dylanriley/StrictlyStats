@@ -15,7 +15,7 @@ namespace StrictlyStatistics.UIComponents
 {
     public static class WeekSpinner
     {
-        public static void Initialise(StrictlyStatsActivity context, List<int> weeks, int spinnerId, bool addEventhandlers = true)
+        public static void Initialise(StrictlyStatsActivity context, List<int> weeks, int spinnerId, bool addEventhandlers = true, Action itemSelectedCallback = null)
         {
             var weekInput = context.FindViewById<Spinner>(spinnerId);
             var adapter = new ArrayAdapter<int>(context, Android.Resource.Layout.SimpleListItem1, weeks);
@@ -29,6 +29,7 @@ namespace StrictlyStatistics.UIComponents
                     string toast = string.Format("{0}", selected);
                     Toast.MakeText(context, toast, ToastLength.Long).Show();
                     context.SelectedWeek = (int)selected;
+                    itemSelectedCallback?.Invoke();
                 };
             }
 
