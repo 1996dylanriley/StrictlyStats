@@ -1,0 +1,21 @@
+From the main menu:
+Score entry: user selects a week, couple, dance and score achieved by couple for the selected dance.
+This process repeats itself, getting the user to enter the scores for all couples, who are still in the competition, for the selected week. 
+On completion a statistics page which shows the top, bottom and average score for the week is displayed.
+
+Rankings for the week: user selects a week and are presented with a list of couples ranked by score.
+If there are no scores for the selected week, an appropriate message should be displayed.
+
+Couple score breakdown: user selects a couple before dances and scores are shown along with an average score.
+
+Vote off: user selects a couple who the public have “voted off” the competition for the current week.
+
+Ranking by dance: user is shown rankings by dance for selected couple.
+If no couple has yet attempted the selected dance an appropriate message should be displayed.
+
+Overall ranking: the user is shown the overall rankings for the competition so far. This page also shows the overall average score for all the couples across the competition so far.
+
+Admin Pages:
+Couple: the user can add, delete and edit couple data.
+Dance: the user can add, delete and edit dance data.
+Score: the user can add, delete and edit score data.

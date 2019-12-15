@@ -1,34 +1,26 @@
-﻿using System;
-using System.Linq;
+﻿using System.IO;
 using Android.App;
 using Android.OS;
 using Android.Widget;
-using Autofac;
+using StrictlyStatistics.Activities;
 
 namespace StrictlyStatistics
 {
     [Activity(Label = "Instructions")]
-    public class Instructions : Activity
+    public class Instructions : StrictlyStatsActivity
     {
-        public IRepository Repo { get; set; }
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Repo = MainApp.Container.Resolve<IRepository>();
-
-            // Create your application here
             SetContentView(Resource.Layout.Instructions);
-            var testView = FindViewById<TextView>(Resource.Id.textView2);
-            try
-            {
-                testView.Text = String.Join('\n', Repo.GetAllDances().Select(x => x.Description).ToList());
-            }
-            catch (Exception e)
-            {
-                var x = e.Message;
-            }
-            
+
+            var instructionsTextBox = FindViewById<TextView>(Resource.Id.instructionsText);
+
+            string fileName = "Instructions.txt";
+            string libraryPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var path = Path.Combine(libraryPath, fileName);
+
+            instructionsTextBox.Text = File.ReadAllText(path);
         }
     }
 }

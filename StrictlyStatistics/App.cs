@@ -18,7 +18,8 @@ namespace StrictlyStatistics
         public override void OnCreate()
         {
             base.OnCreate();
-            Sqlite();
+            CopyRawFile(Resource.Raw.StrictlyStats, "StrictlyStats.db");
+            CopyRawFile(Resource.Raw.Instructions, "Instructions.txt");
 
             var builder = new ContainerBuilder();
             builder.RegisterType<SQLiteRepository>().As<IRepository>().SingleInstance();
@@ -26,13 +27,13 @@ namespace StrictlyStatistics
 
         }
 
-        public void Sqlite()
+        public void CopyRawFile(int fileId, string fileName)
         {
             var docFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            var dbFile = Path.Combine(docFolder, "StrictlyStats.db");
+            var dbFile = Path.Combine(docFolder, fileName);
             if (!System.IO.File.Exists(dbFile))
             {
-                var stream = Resources.OpenRawResource(Resource.Raw.StrictlyStats);
+                var stream = Resources.OpenRawResource(fileId);
                 FileStream writeStream = new FileStream(dbFile, FileMode.OpenOrCreate, FileAccess.Write);
                 ReadWriteStream(stream, writeStream);
             }
