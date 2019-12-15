@@ -15,7 +15,7 @@ namespace StrictlyStatistics.UIComponents
 {
     public static class RankingListView
     {
-        public static void Create(Activity context, List<Tuple<string, int>> items, int listId, Tuple<string, int> firstItem = null)
+        public static void Initialise(Activity context, List<Tuple<string, int>> items, int listId, Tuple<string, int> firstItem = null)
         {
             var listView = context.FindViewById<ListView>(listId);
 

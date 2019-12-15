@@ -14,11 +14,10 @@ namespace StrictlyStatistics
         Dance GetDance(int id);
         List<Score> GetAllScores();
         Score GetScore(int id);
-        List<Score> AddScore();
-        List<Couple> GetCouples();
+        List<Couple> GetAllCouples();
         Couple GetCouple(int id);
         void SaveCoupleScore(Score score);
-        void OverwrtireScore(Score score);
+        void UpdateScore(Score score);
         void UpdateCouple(Couple couple);
 
     }
@@ -40,29 +39,19 @@ namespace StrictlyStatistics
 
         public SQLiteRepository() => con = new SQLiteConnection(DbLocation);
 
+        //Dances
         public List<Dance> GetAllDances() => con.Table<Dance>().ToList();
         public Dance GetDance(int id) => con.Table<Dance>().FirstOrDefault(x => x.DanceId == id);
 
+        //Scores
         public List<Score> GetAllScores() => con.Table<Score>().ToList();
         public Score GetScore(int id) => con.Table<Score>().FirstOrDefault(x => x.ScoreID == id);
-
-        public List<Score> AddScore() => con.Table<Score>().ToList();
-
-        public List<Couple> GetCouples() => con.Table<Couple>().ToList();
-
-        public Couple GetCouple(int id) => con.Table<Couple>().FirstOrDefault(x => x.CoupleID == id);
-
         public void SaveCoupleScore(Score score) => con.Insert(score);
+        public void UpdateScore(Score score) => con.Update(score);
 
-        public void OverwrtireScore(Score score)
-        {
-            var scoresToDelete = GetAllScores().Where(x => x.CoupleID == score.CoupleID && x.WeekNumber == score.WeekNumber);
-            foreach (var s in scoresToDelete)
-                con.Delete(s);
-
-            SaveCoupleScore(score);
-        }
-
+        //Couples
+        public List<Couple> GetAllCouples() => con.Table<Couple>().ToList();
+        public Couple GetCouple(int id) => con.Table<Couple>().FirstOrDefault(x => x.CoupleID == id);
         public void UpdateCouple(Couple couple) => con.Update(couple);
     }
 }

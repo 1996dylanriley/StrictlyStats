@@ -42,7 +42,7 @@ namespace StrictlyStatistics.Activities
         void InitialiseListView()
         {
             var scores = Repo.GetAllScores().Where(x => x.WeekNumber == SelectedWeek);
-            var couples = Repo.GetCouples().Where(x => scores.Select(y => y.CoupleID).Contains(x.CoupleID));
+            var couples = Repo.GetAllCouples().Where(x => scores.Select(y => y.CoupleID).Contains(x.CoupleID));
 
             var weekScores = new List<Tuple<string, int>>();
             foreach(var c in couples)
@@ -51,7 +51,7 @@ namespace StrictlyStatistics.Activities
                 weekScores.Add(new Tuple<string, int>(c.CoupleName, coupleScore));
             }
 
-             RankingListView.Create(this, weekScores, Resource.Id.scoresList);
+             RankingListView.Initialise(this, weekScores, Resource.Id.scoresList);
         }
        
         void InitialiseWeekInput()

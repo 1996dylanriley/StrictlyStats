@@ -59,7 +59,7 @@ namespace StrictlyStatistics.Activities
         void InitialiseCoupleInput()
         {
                 CoupleInput = FindViewById<Spinner>(Resource.Id.couplesScorebreakdownInput);
-                var couples = Repo.GetCouples().ToList();
+                var couples = Repo.GetAllCouples().ToList();
                 var couplesNames = couples.Select(x => x.CoupleName).ToList();
                 couplesNames.Insert(0, "Select couple");
                 CoupleInput.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, couplesNames);

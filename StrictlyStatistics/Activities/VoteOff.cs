@@ -29,8 +29,8 @@ namespace StrictlyStatistics.Activities
 
         void InitialiseComponents()
         {
-            CoupleSpinner.Create(this, Repo.GetCouples().ToList(), Resource.Id.voteCoupleSpinner);
-            WeekSpinner.Create(this, weeks, Resource.Id.voteOffWeekSpinner);
+            CoupleSpinner.Initialise(this, Repo.GetAllCouples().ToList(), Resource.Id.voteCoupleSpinner);
+            WeekSpinner.Initialise(this, weeks, Resource.Id.voteOffWeekSpinner);
             InitialiseVoteButton();
         }
 
@@ -47,7 +47,7 @@ namespace StrictlyStatistics.Activities
                 {
                     Alert.ShowAlertWithSingleButton(this, "Error", "Week cannot be 0!", "Ok");
                 }
-                else if (Repo.GetCouple(Couple.CoupleID).VotedOffWeekNumber == null)
+                else if (Couple.VotedOffWeekNumber == null)
                 {
                     Save();
                 }
@@ -55,7 +55,7 @@ namespace StrictlyStatistics.Activities
                 {
                     Action proceed = () => Save();
                     Action cancel = () => { };
-                    Alert.ShowAlertWithTwoButtons(this, "Warning", "This couple already has an entry for the given week", "Proceed", "Cancel", proceed, cancel);
+                    Alert.ShowAlertWithTwoButtons(this, "Warning", "This couple has already been voted off", "Overwrite", "Cancel", proceed, cancel);
                 }
             };
         }
