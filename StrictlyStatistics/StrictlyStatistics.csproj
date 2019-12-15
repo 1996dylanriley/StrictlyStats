@@ -70,6 +70,7 @@
     <Compile Include="Activities\StrictlyStatsActivity.cs" />
     <Compile Include="Activities\VoteOff.cs" />
     <Compile Include="Activities\WeeklyRankings.cs" />
+    <Compile Include="Activities\WeekStats.cs" />
     <Compile Include="Adapters\SimpleListItem2ListAdapter.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Data\Models\Couple.cs" />
@@ -170,6 +171,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Raw\Instructions.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\WeekStats.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

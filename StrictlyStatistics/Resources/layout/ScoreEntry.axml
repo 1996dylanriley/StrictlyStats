@@ -12,6 +12,18 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/textView1" />
+    <TextView
+		android:text="Week"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/textView2" />
+	<Spinner
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/weekInput" />
 	<TextView
 		android:text="Couple"
 		android:textAppearance="?android:attr/textAppearanceMedium"
@@ -24,18 +36,6 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/coupleInput" />
-	<TextView
-		android:text="Week"
-		android:textAppearance="?android:attr/textAppearanceMedium"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/textView2" />
-	<Spinner
-		android:minWidth="25px"
-		android:minHeight="25px"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/weekInput" />
 	<TextView
 		android:text="Dance"
 		android:textAppearance="?android:attr/textAppearanceMedium"
@@ -71,6 +71,11 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/cancelButton" />
+    <Button
+        android:text="Weeks stats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/weeksStatsButton" />
 
 
 </LinearLayout>

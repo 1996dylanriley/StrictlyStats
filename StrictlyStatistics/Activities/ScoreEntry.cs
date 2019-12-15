@@ -18,7 +18,17 @@ namespace StrictlyStatistics.Activities
     [Activity(Label = "ScoreEntry")]
     public class ScoreEntry : StrictlyStatsActivity
     {
-        List<int> PossibleWeeks { get; set; }
+        List<Couple> PossibleCouples
+        {
+            get
+            {
+                var scoresForWeek = Repo.GetAllScores().Where(x => x.WeekNumber == SelectedWeek);
+                var possibleCouples = Repo.GetAllCouples().Where(x =>
+                  (x.VotedOffWeekNumber >= SelectedWeek || x.VotedOffWeekNumber == null)
+                   && !(scoresForWeek.Select(z => z.CoupleID).Contains(x.CoupleID))).ToList();
+                return possibleCouples;
+            }
+        }
         int EnteredScore { get; set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -26,23 +36,23 @@ namespace StrictlyStatistics.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ScoreEntry);
 
-            InitialiseScoreInput();
-            WeekSpinner.Initialise(this, weeks, Resource.Id.weekInput);
             DanceSpinner.Initialise(this, Repo.GetAllDances().ToList(), Resource.Id.danceInput);
-            InitialiseCoupleInput();
+            CoupleSpinner.Initialise(this, Repo.GetAllCouples(), Resource.Id.coupleInput);
+            InitialiseScoreInput();
+            InitialiseWeekInput();
             InitialiseConfirmButton();
             InitialiseCancelButton();
-        }    
-        void InitialiseCoupleInput()
+            InitialiseStatsButton();
+        }
+
+        void InitialiseWeekInput()
         {
             Action updateInputsOnSelect = () =>
             {
-                UpdatePossibleWeeks();
-                WeekSpinner.Update(this, PossibleWeeks, Resource.Id.weekInput);
-
-                UpdatePossibleDancesInput();
+                CoupleSpinner.Update(this, PossibleCouples, Resource.Id.coupleInput);
+                UpdateWeekStatsButtonVis();
             };
-            CoupleSpinner.Initialise(this, Repo.GetAllCouples().ToList(), Resource.Id.coupleInput, true, updateInputsOnSelect);
+            WeekSpinner.Initialise(this, weeks, Resource.Id.weekInput, true, updateInputsOnSelect);
         }
 
         void InitialiseCancelButton()
@@ -57,31 +67,27 @@ namespace StrictlyStatistics.Activities
 
             button.Click += (sender, args) =>
             {                    
-                var existingScore = Repo.GetAllScores().FirstOrDefault(x => x.CoupleID == Couple?.CoupleID && x.WeekNumber == SelectedWeek);
+                var existingScoreForDance = Repo.GetAllScores().FirstOrDefault(x => x.CoupleID == Couple?.CoupleID && x.DanceID == Dance.DanceId);
+                var existingScoreForWeek = Repo.GetAllScores().FirstOrDefault(x => x.CoupleID == Couple?.CoupleID && x.WeekNumber == SelectedWeek);
+
                 if (SelectedWeek == 0 || Couple?.CoupleID == 0 || Dance?.DanceId == 0 || (EnteredScore <= 0 || EnteredScore > 40))
                     Alert.ShowAlertWithSingleButton(this, "Error", "All fields must be populated", "OK");
-                else if (existingScore != null)
+                else if(existingScoreForWeek != null)
                 {
-                    Action proceed = () => Save(existingScore.ScoreID);
+                    Action proceed = () => Save(existingScoreForWeek.ScoreID);
                     Action cancel = () => { };
-                    Alert.ShowAlertWithTwoButtons(this, "Warning", "This couple already has an entry for the given week", "Proceed", "Cancel", proceed, cancel);
+                    Alert.ShowAlertWithTwoButtons(this, "Warning", "This couple already has an entry for the selected week", "Proceed", "Cancel", proceed, cancel);
+                }
+                else if (existingScoreForDance != null)
+                {
+                    Action proceed = () => Save(existingScoreForDance.ScoreID);
+                    Action cancel = () => { };
+                    Alert.ShowAlertWithTwoButtons(this, "Warning", "This couple already has an entry for the given dance", "Proceed", "Cancel", proceed, cancel);
                 }
                 else
                     Save();
+                
             };         
-        }
-
-        void UpdatePossibleWeeks()
-        {
-            PossibleWeeks = weeks.Where(x => x < Couple?.VotedOffWeekNumber || Couple?.VotedOffWeekNumber == null || Couple == null).ToList();
-        }
-
-        void UpdatePossibleDancesInput()
-        {
-            var previousDances = Repo.GetAllScores().Where(x => x.CoupleID == Couple?.CoupleID).Select(x => x.DanceID).ToList();
-            List<Dance> possibleDances = Repo.GetAllDances().ToList();
-            possibleDances = Repo.GetAllDances().Where(x => !previousDances.Contains(x.DanceId)).ToList();
-            DanceSpinner.Update(this, possibleDances, Resource.Id.danceInput);
         }
 
         void InitialiseScoreInput()
@@ -118,13 +124,36 @@ namespace StrictlyStatistics.Activities
             ResetPage();
         }
 
+        public void InitialiseStatsButton()
+        {
+            var btn = FindViewById<Button>(Resource.Id.weeksStatsButton);
+
+            UpdateWeekStatsButtonVis();
+
+            btn.Click += (sender, args) =>
+            {
+                var activity = new Intent(this, typeof(WeekStats));
+                activity.PutExtra("week", SelectedWeek.ToString());
+                StartActivity(activity);
+            };
+        }
+        
+        void UpdateWeekStatsButtonVis()
+        {
+            var btn = FindViewById<Button>(Resource.Id.weeksStatsButton); 
+            if (PossibleCouples.Count() == 0 && SelectedWeek != 0)
+                btn.Visibility = ViewStates.Visible;
+            else
+                btn.Visibility = ViewStates.Invisible;
+        }
+
         void ResetPage()
         {
-            CoupleSpinner.Update(this, Repo.GetAllCouples(), Resource.Id.coupleInput);
-            WeekSpinner.Update(this, weeks, Resource.Id.weekInput);
+            CoupleSpinner.Update(this, PossibleCouples, Resource.Id.coupleInput);
             DanceSpinner.Update(this, Repo.GetAllDances().ToList(), Resource.Id.danceInput);
             EditText scoreInput = FindViewById<EditText>(Resource.Id.scoreInput);
             scoreInput.Text = "0";
+            UpdateWeekStatsButtonVis();
         }
     }
 }
