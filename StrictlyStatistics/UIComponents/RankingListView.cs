@@ -15,7 +15,7 @@ namespace StrictlyStatistics.UIComponents
 {
     public static class RankingListView
     {
-        public static void Initialise(Activity context, List<Tuple<string, int>> items, int listId, Tuple<string, int> firstItem = null)
+        public static void Initialise(Activity context, List<Tuple<string, int>> items, int listId)
         {
             var listView = context.FindViewById<ListView>(listId);
 
@@ -23,13 +23,8 @@ namespace StrictlyStatistics.UIComponents
 
             for (int i = 0; i < items.Count; i++)
             {
-                int rankNumber = i;
-                if (firstItem == null)
-                    rankNumber = rankNumber++;
-                if (i == 0 && firstItem != null)
-                    items[i] = firstItem;
-                else
-                    items[i] = new Tuple<string, int>("#" + rankNumber.ToString() + " " + items[i].Item1, items[i].Item2);
+                int rankNumber = i + 1;
+                items[i] = new Tuple<string, int>("#" + rankNumber.ToString() + " " + items[i].Item1, items[i].Item2);
             }
 
             var adapter = new SimpleListItem2ListAdapter(context, items);
