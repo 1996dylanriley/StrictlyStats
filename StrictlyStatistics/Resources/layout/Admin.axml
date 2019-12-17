@@ -3,5 +3,22 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+	<Button
+		android:text="Edit Couple"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:id="@+id/editCoupleButton" />
+	<Button
+		android:text="Edit Dance"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/editDanceButton" />
+	<Button
+		android:text="Edit Score"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/editScoreButton" />
 
 </LinearLayout>

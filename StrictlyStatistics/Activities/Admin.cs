@@ -19,7 +19,21 @@ namespace StrictlyStatistics.Activities
         {
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
+            SetContentView(Resource.Layout.activity_main);
+
+            InitialiseComponents();
+        }
+
+        public void InitialiseComponents()
+        {
+            var editCoupleButton = FindViewById<Button>(Resource.Id.editCoupleButton);
+            editCoupleButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(EditCouple)));
+
+            var editDanceButton = FindViewById<Button>(Resource.Id.editDanceButton);
+            editDanceButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(EditDance)));
+
+            var editScoreButton = FindViewById<Button>(Resource.Id.editScoreButton);
+            editScoreButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(EditScore)));
         }
     }
 }

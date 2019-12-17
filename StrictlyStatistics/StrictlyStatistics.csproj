@@ -62,6 +62,9 @@
   <ItemGroup>
     <Compile Include="Activities\Admin.cs" />
     <Compile Include="Activities\CoupleScoreBreakdown.cs" />
+    <Compile Include="Activities\EditCouple.cs" />
+    <Compile Include="Activities\EditDance.cs" />
+    <Compile Include="Activities\EditScore.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\Instructions.cs" />
     <Compile Include="Activities\OverallRanking.cs" />
@@ -174,6 +177,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\WeekStats.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\EditCouple.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\EditScore.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\EditDance.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
