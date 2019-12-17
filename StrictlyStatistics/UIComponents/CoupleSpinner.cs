@@ -28,7 +28,7 @@ namespace StrictlyStatistics.UIComponents
                 {
                     Spinner spinner = (Spinner)sender;
                     var selected = spinner.GetItemAtPosition(e.Position);
-                    context.Couple = couples.FirstOrDefault(x => selected.ToString().Contains(x.CoupleName));
+                    context.Couple = couples.FirstOrDefault(x => selected.ToString().Contains(x.CoupleName)) ?? new Couple();
                     ItemSelectedCallback?.Invoke();
                 };
             }     

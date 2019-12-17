@@ -1,45 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-	<TextView
-		android:text="Edit Couple"
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/textView1" />
-	<Spinner
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:minWidth="25px"
-		android:minHeight="25px"
-		android:id="@+id/editCoupleSpinner" />
-	<EditText
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/celebFirstNameInput" />
-	<EditText
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/celebLastNameInput" />
-	<EditText
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/proFirstNameInput" />
-	<EditText
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/proLastNameInput" />
-	<EditText
-		android:inputType="number"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/celebStarRating" />
-	<EditText
-		android:inputType="number"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:id="@+id/votedOffWeekNumber" />
+    <TextView
+        android:text="Edit Couple"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/editCoupleSpinner" />
+    <TextView
+        android:text="Celebrity first name:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/celebFirstNameInput" />
+    <TextView
+        android:text="Celebrity last name:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/celebLastNameInput" />
+    <TextView
+        android:text="Professional first name:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/proFirstNameInput" />
+    <TextView
+        android:text="Professional last name:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/proLastNameInput" />
+    <TextView
+        android:text="Celebrity star rating:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/celebStarRating" />
+    <TextView
+        android:text="Voted off week number:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/votedOffWeekNumber" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <Button
+            android:text="Cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editCoupleCancelButton" />
+        <Button
+            android:text="Save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editCoupleSaveButton" />
+    </LinearLayout>
 
 </LinearLayout>

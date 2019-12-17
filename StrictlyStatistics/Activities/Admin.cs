@@ -19,7 +19,7 @@ namespace StrictlyStatistics.Activities
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.Admin);
 
             InitialiseComponents();
         }
