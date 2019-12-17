@@ -28,7 +28,7 @@ namespace StrictlyStatistics.UIComponents
                 {
                     Spinner spinner = (Spinner)sender;
                     var selected = spinner.GetItemAtPosition(e.Position);
-                    context.Dance = dances.FirstOrDefault(x => x.Name == selected.ToString());
+                    context.Dance = dances.FirstOrDefault(x => x.Name == selected.ToString()) ?? new Dance();
                     itemSelectedCallback?.Invoke();
                 };
             }
