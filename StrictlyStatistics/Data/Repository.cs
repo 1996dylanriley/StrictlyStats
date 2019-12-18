@@ -20,8 +20,8 @@ namespace StrictlyStatistics
         void UpdateScore(Score score);
         void UpdateCouple(Couple couple);
         void UpdateDance(Dance dance);
-        void CreateCouple(Dance couple);
-        void RemoveCouple(Dance couple);
+        void CreateCouple(Couple couple);
+        void RemoveCouple(Couple couple);
         void RemoveScore(Score score);
         void CreateDance(Dance dance);
         void RemoveDance(Dance dance);
@@ -64,7 +64,7 @@ namespace StrictlyStatistics
         public List<Couple> GetAllCouples() => con.Table<Couple>().ToList();
         public Couple GetCouple(int id) => con.Table<Couple>().FirstOrDefault(x => x.CoupleID == id);
         public void UpdateCouple(Couple couple) => con.Update(couple);
-        public void CreateCouple(Dance couple) => con.Insert(couple);
-        public void RemoveCouple(Dance couple) => con.Delete(couple);
+        public void CreateCouple(Couple couple) => con.Insert(couple);
+        public void RemoveCouple(Couple couple) => con.Delete(couple);
     }
 }

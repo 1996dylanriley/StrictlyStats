@@ -48,6 +48,7 @@ namespace StrictlyStatistics.Activities
 
             var saveButton = FindViewById<Button>(Resource.Id.editCoupleSaveButton);
             var cancelButton = FindViewById<Button>(Resource.Id.editCoupleCancelButton);
+            var deleteButton = FindViewById<Button>(Resource.Id.editCoupleDeleteButton);
 
             if (addEventhandlers)
             {
@@ -74,7 +75,25 @@ namespace StrictlyStatistics.Activities
 
                 saveButton.Click += (sender, args) =>
                 {
-                    if (Couple.CoupleID != 0) Repo.UpdateCouple(Couple);
+                   
+                    if (String.IsNullOrEmpty(Couple.CelebrityFirstName)
+                        || String.IsNullOrEmpty(Couple.CelebrityLastName)
+                        || String.IsNullOrEmpty(Couple.ProfessionalFirstName)
+                        || String.IsNullOrEmpty(Couple.ProfessionalLastName))
+                        Alert.ShowAlertWithSingleButton(this, "Error", "All name fields must be populated", "OK");
+                    else if (Couple.CoupleID != 0)
+                        Repo.UpdateCouple(Couple);
+                    else
+                        Repo.CreateCouple(Couple);
+                };
+
+                deleteButton.Click += (sender, args) =>
+                {
+                    if(Couple.CoupleID != 0)
+                    {
+                        Repo.RemoveCouple(Couple);
+                        Alert.ShowAlertWithSingleButton(this, "Success", "Couple deleted", "OK");
+                    }
                 };
 
                 cancelButton.Click += (sender, args) => StartActivity(new Intent(this, typeof(EditCouple)));

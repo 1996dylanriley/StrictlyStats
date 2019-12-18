@@ -93,6 +93,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editCoupleSaveButton" />
+        <Button
+            android:text="Delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editCoupleDeleteButton" />
     </LinearLayout>
 
 </LinearLayout>
