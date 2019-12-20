@@ -22,11 +22,17 @@ namespace StrictlyStatistics.Activities
         {
             get
             {
-                var scoresForWeek = Repo.GetAllScores().Where(x => x.WeekNumber == SelectedWeek);
-                var possibleCouples = Repo.GetAllCouples().Where(x =>
-                  (x.VotedOffWeekNumber >= SelectedWeek || x.VotedOffWeekNumber == null)
-                   && !(scoresForWeek.Select(z => z.CoupleID).Contains(x.CoupleID))).ToList();
-                return possibleCouples;
+                if (SelectedWeek < 1)
+                    return Repo.GetAllCouples();
+                else
+                {
+                    var scoresForWeek = Repo.GetAllScores().Where(x => x.WeekNumber == SelectedWeek);
+                    var possibleCouples = Repo.GetAllCouples().Where(x =>
+                      (x.VotedOffWeekNumber >= SelectedWeek || x.VotedOffWeekNumber == null)
+                       && !(scoresForWeek.Select(z => z.CoupleID).Contains(x.CoupleID))).ToList();
+                    return possibleCouples;
+                }
+
             }
         }
         int EnteredScore { get; set; }
@@ -50,6 +56,8 @@ namespace StrictlyStatistics.Activities
             Action updateInputsOnSelect = () =>
             {
                 CoupleSpinner.Update(this, PossibleCouples, Resource.Id.coupleInput);
+                if (PossibleCouples.Count == 0)
+                    Alert.ShowAlertWithSingleButton(this, "Warning", "This week has already been populated", "OK");
                 UpdateWeekStatsButtonVis();
             };
             WeekSpinner.Initialise(this, weeks, Resource.Id.weekInput, true, updateInputsOnSelect);
